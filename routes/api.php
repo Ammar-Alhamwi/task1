@@ -19,7 +19,8 @@ use App\Http\Controllers\UserSkillController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/UserSkill/{user_id}', [UserSkillController::class, 'index']);
-Route::get('/show1/{skill_id}', [UserSkillController::class, 'show1']);
+Route::get('/username/{user_name}', [UserSkillController::class, 'username']);
+Route::get('/skillid/{skill_id}', [UserSkillController::class, 'skillid']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -27,7 +27,7 @@ class UserSkillController extends Controller
 
 
     }
-    public function show($user_name){
+    public function username($user_name){
         $name_user=user::all()->where('name',$user_name)->first();
         $user= user_skill::all()->where('user_id',$name_user->id);
 
@@ -35,17 +35,13 @@ class UserSkillController extends Controller
 
             echo $user_name . '    ' . $ammar->skill->name  .'    ';
         }
-
-
-
-
-
     }
-    public function show1($skill_id ){
+
+
+    public function skillid($skill_id ){
         $skill=skill::all()->where('id',$skill_id)->first();
         $user= user_skill::all()->where('skill_id',$skill->id);
         foreach($user as $ammar){
-
             echo $skill->name . '    ' . $ammar->user->name  .'    ';
         }
     }
