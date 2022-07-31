@@ -10,23 +10,20 @@ use App\Models\User;
 
 class UserSkillController extends Controller
 {
-    public function index($user_id){
+    public function index(){
+        $user=user::all();
 
-
-        $user= user_skill::all()->where('user_id',$user_id)->count();
-        $name_user=user::all()->where('id',$user_id)->first();
-
-        $response = [
-            'name' => $name_user->name,
-            'user'=>$name_user->id,
-            'numer'=>$user
-
-
-        ];
-        return  $response;
-
-
+        foreach($user as $ammar){
+            echo $ammar->id . ' ';
+            echo $ammar->name  ;
+            $skill=user_skill::all()->where('user_id',$ammar->id);
+            foreach($skill as $val){
+                echo $val->skill->name. '<br>';
+            }
+        }
     }
+
+
     public function username($user_name){
         $name_user=user::all()->where('name',$user_name)->first();
         $user= user_skill::all()->where('user_id',$name_user->id);
