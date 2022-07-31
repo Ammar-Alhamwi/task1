@@ -13,13 +13,12 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'password' => 'required|string',
-            'surname'=>'required|string'
+
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'surname'=>$request->surname,
             'password' => bcrypt($request->password),
 
         ]);
